@@ -128,10 +128,10 @@ pos_b1 = map(x -> -0.5 * sin(2 * pi * sqrt(c - x^2)) * (cosh(p * x) - sinh(p * x
                 0.5 * sqrt(c - x^2) * cos((2 * pi - p) * sqrt(c - x^2)), pos_eigen_list)
 pos_a2 = map(x -> x * cosh(p * x) * cos(2 * pi * sqrt(c - x^2)) -
                 sqrt(c - x^2) * sinh(p * x) * sin(2 * pi * sqrt(c - x^2)) - 
-                x * cos(2 * pi * sqrt(c - x^2)), pos_eigen_list)
+                x * cos(p * sqrt(c - x^2)), pos_eigen_list)
 pos_b2 = map(x -> -x * cosh(p * x) * sin(2 * pi * sqrt(c - x^2)) -
                 sqrt(c - x^2) * sinh(p * x) * cos(2 * pi * sqrt(c - x^2)) + 
-                x * sin(p * sqrt(c + x^2)), pos_eigen_list)
+                x * sin(p * sqrt(c - x^2)), pos_eigen_list)
 
 pos_eigen_func1(x, i) = pos_a1[i] * exp(pos_eigen_list[i] * x) + pos_b1[i] * exp(-pos_eigen_list[i] * x)
 pos_eigen_func2(x, i) = pos_a2[i] * sin(sqrt(c - (pos_eigen_list[i])^2) * x) + 
