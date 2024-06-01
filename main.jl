@@ -118,14 +118,10 @@ print("Find positive eigenvalues: ")
 end
 
 # build solutions for positive eigenvalues
-pos_a1 = map(x -> 0.5 * sin(2 * pi * sqrt(c - x^2)) * (cosh(p * x) - sinh(p * x)) *
-                (sqrt(c - x^2) * sin(2 * pi * sqrt(c - x^2)) - x * cos(2 * pi * sqrt(c - x^2))) - 
-                0.5 * x * sin((2 * pi - p) * sqrt(c - x^2)) - 0.5 * sqrt(c - x^2) * 
-                cos((2 * pi - p) * sqrt(c - x^2)), pos_eigen_list)
-pos_b1 = map(x -> -0.5 * sin(2 * pi * sqrt(c - x^2)) * (cosh(p * x) - sinh(p * x)) *
-                (sqrt(c - x^2) * sin(2 * pi * sqrt(c - x^2)) + x * cos(2 * pi * sqrt(c - x^2))) -
-                sqrt(c - x^2) * sinh(p * x) - 0.5 * x * sin((2 * pi - p) * sqrt(c - x^2)) +
-                0.5 * sqrt(c - x^2) * cos((2 * pi - p) * sqrt(c - x^2)), pos_eigen_list)
+pos_a1 = map(x -> 0.5 * (sqrt(c - x^2) * (cosh(p * x) - sinh(p * x) - cos((2 * pi - p) * sqrt(c - x^2))) - 
+                x * sin((2 * pi - p) * sqrt(c - x^2))), pos_eigen_list)
+pos_b1 = map(x -> 0.5 * (sqrt(c - x^2) * (-cosh(p * x) - sinh(p * x) + cos((2 * pi - p) * sqrt(c - x^2))) - 
+                x * sin((2 * pi - p) * sqrt(c - x^2))), pos_eigen_list)
 pos_a2 = map(x -> x * cosh(p * x) * cos(2 * pi * sqrt(c - x^2)) -
                 sqrt(c - x^2) * sinh(p * x) * sin(2 * pi * sqrt(c - x^2)) - 
                 x * cos(p * sqrt(c - x^2)), pos_eigen_list)
@@ -172,6 +168,12 @@ function pos_sol_img(x, timestep)
     end
     return result
 end
+
+#=
+x_points = range(0, 2 * pi, step = 0.00005 * pi)
+plot(x_points, (@. pos_eigen_func(x_points, 1)), linecolor=:darkblue, linewidth=2)
+plot!(grid=false, legend=false, size=(900, 600))
+=#
 
 # build solutions for zero eigenvalue
 zero_a1 = sqrt(c) * (cos((2 * pi - p) * sqrt(c)) - 1)
