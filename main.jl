@@ -18,20 +18,20 @@ end
 
 # define constants
 c = 9
-p = pi / 3
-time_steps = [0, pi, pi / 2, pi / 3, pi / 4, pi / 5, pi / 6, pi / 7, pi / 8, pi / 9, pi / 10, 2 * pi / 15, pi / 15, pi / 30]
+p = pi
+time_steps = [0, pi / 2, pi / 3, pi / 4, pi / 5, pi / 6, pi / 7, pi / 8, pi / 9, pi / 10, 2 * pi / 15, pi / 15, pi / 30]
 irrational_time_steps = [0.0001, 0.001, 0.01, 0.1, 0.2, 0.3, 0.4, 0.5]
 
 num_neg_eigenvalues = 1000
-neg_eigen_list = [1., 1.6, 2.95, 2.96]
-for i in 5:(num_neg_eigenvalues / 2 + 2)
+neg_eigen_list = [0.5, 1., 2., 2.5, 3.3, 3.5]
+for i in 5:(num_neg_eigenvalues / 2 + 1)
     lower = i - (i - sqrt(i^2 - c)) * (1 - p / (2 * pi)) - 0.1
     higher = i - (i - sqrt(i^2 - c)) * (1 - p / (2 * pi)) + 0.1
     append!(neg_eigen_list, [lower, higher])
 end
 
-num_pos_eigenvalues = 5
-pos_eigen_list = [1.5, 2.1, 2.55, 2.8, 2.95]
+num_pos_eigenvalues = 3
+pos_eigen_list = [1.7, 2.5, 2.9]
 
 function init_func(x)
     if x <= pi
@@ -223,9 +223,9 @@ print("Plotting real part over rational points: ")
 
         # save file
         if timestep == 0
-            filename = "images\\9_pi3_stepfunc\\rational_real\\9_pi3_0_1000_00005pi_real.png"
+            filename = "images\\9_pi_stepfunc\\rational_real\\9_pi_0_1000_00005pi_real.png"
         else
-            filename = "images\\9_pi3_stepfunc\\rational_real\\9_pi3_pi$(pi/timestep)_1000_00005pi_real.png"
+            filename = "images\\9_pi_stepfunc\\rational_real\\9_pi_pi$(pi/timestep)_1000_00005pi_real.png"
         end
         savefig(filename)
     end
@@ -242,9 +242,9 @@ print("Plotting imaginary part over rational points: ")
 
         # save file
         if timestep == 0
-            filename = "images\\9_pi3_stepfunc\\rational_img\\9_pi3_0_1000_00005pi_imaginary.png"
+            filename = "images\\9_pi_stepfunc\\rational_img\\9_pi_0_1000_00005pi_imaginary.png"
         else
-            filename = "images\\9_pi3_stepfunc\\rational_img\\9_pi3_pi$(pi/timestep)_1000_00005pi_imaginary.png"
+            filename = "images\\9_pi_stepfunc\\rational_img\\9_pi_pi$(pi/timestep)_1000_00005pi_imaginary.png"
         end
         savefig(filename)
     end
@@ -260,7 +260,7 @@ print("Plotting real part over irrational points: ")
         plot!(grid=false, legend=false, size=(900, 600))
 
         # save file
-        filename = "images\\9_pi3_stepfunc\\irrational_real\\9_pi3_$(timestep)_1000_00005pi_real.png"
+        filename = "images\\9_pi_stepfunc\\irrational_real\\9_pi_$(timestep)_1000_00005pi_real.png"
         savefig(filename)
     end
 end
@@ -275,7 +275,7 @@ print("Plotting imaginary part over irrational points: ")
         plot!(grid=false, legend=false, size=(900, 600))
 
         # save file
-        filename = "images\\9_pi3_stepfunc\\irrational_img\\9_pi3_$(timestep)_1000_00005pi_imaginary.png"
+        filename = "images\\9_pi_stepfunc\\irrational_img\\9_pi_$(timestep)_1000_00005pi_imaginary.png"
         savefig(filename)
     end
 end
