@@ -34,7 +34,7 @@ num_pos_eigenvalues = 3
 pos_eigen_list = [1.7, 2.5, 2.9]
 
 function init_func(x)
-    if x <= pi
+    if x <= pi/2
         return 0
     else
         return 1
@@ -223,9 +223,9 @@ print("Plotting real part over rational points: ")
 
         # save file
         if timestep == 0
-            filename = "images\\9_pi_stepfunc\\rational_real\\9_pi_0_1000_00005pi_real.png"
+            filename = "images\\9_pi_stepfuncpi2\\rational_real\\9_pi_0_1000_00005pi_real.png"
         else
-            filename = "images\\9_pi_stepfunc\\rational_real\\9_pi_pi$(pi/timestep)_1000_00005pi_real.png"
+            filename = "images\\9_pi_stepfuncpi2\\rational_real\\9_pi_pi$(pi/timestep)_1000_00005pi_real.png"
         end
         savefig(filename)
     end
@@ -242,9 +242,9 @@ print("Plotting imaginary part over rational points: ")
 
         # save file
         if timestep == 0
-            filename = "images\\9_pi_stepfunc\\rational_img\\9_pi_0_1000_00005pi_imaginary.png"
+            filename = "images\\9_pi_stepfuncpi2\\rational_img\\9_pi_0_1000_00005pi_imaginary.png"
         else
-            filename = "images\\9_pi_stepfunc\\rational_img\\9_pi_pi$(pi/timestep)_1000_00005pi_imaginary.png"
+            filename = "images\\9_pi_stepfuncpi2\\rational_img\\9_pi_pi$(pi/timestep)_1000_00005pi_imaginary.png"
         end
         savefig(filename)
     end
@@ -260,7 +260,7 @@ print("Plotting real part over irrational points: ")
         plot!(grid=false, legend=false, size=(900, 600))
 
         # save file
-        filename = "images\\9_pi_stepfunc\\irrational_real\\9_pi_$(timestep)_1000_00005pi_real.png"
+        filename = "images\\9_pi_stepfuncpi2\\irrational_real\\9_pi_$(timestep)_1000_00005pi_real.png"
         savefig(filename)
     end
 end
@@ -275,7 +275,7 @@ print("Plotting imaginary part over irrational points: ")
         plot!(grid=false, legend=false, size=(900, 600))
 
         # save file
-        filename = "images\\9_pi_stepfunc\\irrational_img\\9_pi_$(timestep)_1000_00005pi_imaginary.png"
+        filename = "images\\9_pi_stepfuncpi2\\irrational_img\\9_pi_$(timestep)_1000_00005pi_imaginary.png"
         savefig(filename)
     end
 end
