@@ -59,6 +59,16 @@ function zeroSol(x)
     return result
 end
 
+function revivalSolReal(x, timestep)
+    revivalCosList = map(i -> cos(i^2 * timestep), range(1, numNegEigenvalues, step=1))
+    result = 0
+    for i in 1:div(numNegEigenvalues, 2)
+        result += @. revivalCoeffList[2*i-1] * revivalCosList[i] * cos(i*x)
+        result += @. revivalCoeffList[2*i] * revivalCosList[i] * sin(i*x)
+    end
+    return result
+end
+
 solReal(x, timestep) = negSolReal(x, timestep) + posSolReal(x, timestep) + zeroSol(x)
 solImg(x, timestep) = negSolImg(x, timestep) + posSolImg(x, timestep)
 

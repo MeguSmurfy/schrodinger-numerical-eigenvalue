@@ -14,10 +14,11 @@ using .NegEigenfunction: negEigenFunc
 using .PosEigenfunction: posEigenFunc
 using .ZeroEigenfunction: zeroEigenFunc
 
-export negCoeffList, posCoeffList, zeroCoeff
+export negCoeffList, posCoeffList, zeroCoeff, revivalCoeffList
 
 negCoeffList = Float64[]
 posCoeffList = Float64[]
+revivalCoeffList = Float64[]
 
 print("Find negative coefficients: ")
 @time begin     
@@ -39,5 +40,15 @@ end
 
 zeroCoeff = quadgk(x -> zeroEigenFunc(x) * initFunc(x), 0, 2 * pi, rtol = 1e-5)[1] / 
                 quadgk(x -> (zeroEigenFunc(x))^2, 0, 2 * pi, rtol = 1e-5)[1]
+
+for i in 1:div(numNegEigenvalues, 2)
+    a = quadgk(x -> cos(i * x) * init_func(x), 0, 2 * pi, rtol = 1e-5)[1]
+    b = quadgk(x -> (cos(i * x))^2, 0, 2 * pi, rtol = 1e-5)[1]
+    push!(revivalCoeffList, a/b)
+
+    a = quadgk(x -> sin(i * x) * init_func(x), 0, 2 * pi, rtol = 1e-5)[1]
+    b = quadgk(x -> (sin(i * x))^2, 0, 2 * pi, rtol = 1e-5)[1]
+    push!(revivalCoeffList, a/b)
+end
 
 end
