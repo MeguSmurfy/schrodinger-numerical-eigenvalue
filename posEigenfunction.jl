@@ -1,10 +1,14 @@
 module PosEigenfunction
 
+include("./settings.jl")
 include("./eigenvalues.jl")
 
-using .Eigenvalues
+using .Settings
+using .Eigenvalues: posEigenList
 
 export posEigenFunc
+
+println("In posEigenfunction")
 
 el = posEigenList
 

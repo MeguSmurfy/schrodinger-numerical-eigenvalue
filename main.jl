@@ -1,10 +1,15 @@
 import Pkg
 Pkg.add("Plots")
 
+include("./settings.jl")
 include("./solution.jl")
 
 using Plots
+using .Settings
 using .Solution
+
+solReal = Solution.solReal
+solImg = Solution.solImg
 
 xPoints = range(0, 2 * pi, step = 0.00005 * pi)
 
@@ -12,7 +17,7 @@ print("Plotting real part over rational points: ")
 @time begin
     for timestep in rationalTimeSteps
         # make the plot
-        plot(x_points, (@. solReal(xPoints, timestep)), linecolor=:darkblue, linewidth=2)
+        plot(xPoints, (@. solReal(xPoints, timestep)), linecolor=:darkblue, linewidth=2)
 
         # customization
         plot!(grid=false, legend=false, size=(900, 600))
@@ -31,7 +36,7 @@ print("Plotting imaginary part over rational points: ")
 @time begin
     for timestep in rationalTimeSteps
         # make the plot
-        plot(x_points, (@. solReal(xPoints, timestep)), linecolor=:darkblue, linewidth=2)
+        plot(xPoints, (@. solImg(xPoints, timestep)), linecolor=:darkblue, linewidth=2)
 
         # customization
         plot!(grid=false, legend=false, size=(900, 600))
@@ -50,7 +55,7 @@ print("Plotting real part over irrational points: ")
 @time begin
     for timestep in irrationalTimeSteps
         # make the plot
-        plot(x_points, (@. solReal(xPoints, timestep)), linecolor=:darkblue, linewidth=2)
+        plot(xPoints, (@. solReal(xPoints, timestep)), linecolor=:darkblue, linewidth=2)
 
         # customization
         plot!(grid=false, legend=false, size=(900, 600))
@@ -65,7 +70,7 @@ print("Plotting imaginary part over irrational points: ")
 @time begin
     for timestep in irrationalTimeSteps
         # make the plot
-        plot(x_points, (@. solImg(xPoints, timestep)), linecolor=:darkblue, linewidth=2)
+        plot(xPoints, (@. solImg(xPoints, timestep)), linecolor=:darkblue, linewidth=2)
 
         # customization
         plot!(grid=false, legend=false, size=(900, 600))

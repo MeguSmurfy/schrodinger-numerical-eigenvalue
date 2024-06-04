@@ -1,12 +1,16 @@
 module NegEigenfunction
 
+include("./settings.jl")
 include("./eigenvalues.jl")
 
-using .Eigenvalues
+using .Settings
+using .Eigenvalues: negEigenList
 
 export negEigenFunc
 
 el = negEigenList
+
+println("In negEigenfunction")
 
 a1 = map(x -> sqrt(c + x^2) * (cos(p * x) - cos((2 * pi - p) * sqrt(c + x^2))), el)
 b1 = map(x -> -(x * sin((2 * pi - p) * sqrt(c + x^2)) + sqrt(c + x^2) * sin(p * x)), el)

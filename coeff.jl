@@ -9,18 +9,19 @@ include("./posEigenfunction.jl")
 include("./zeroEigenfunction.jl")
 
 using QuadGK
-using .NegEigenfunction
-using .PosEigenfunction
-using .ZeroEigenfunction
+using .Settings
+using .NegEigenfunction: negEigenFunc
+using .PosEigenfunction: posEigenFunc
+using .ZeroEigenfunction: zeroEigenFunc
 
 export negCoeffList, posCoeffList, zeroCoeff
 
 negCoeffList = Float64[]
 posCoeffList = Float64[]
 
-for i in 1:numNegEigenvalues
-    print("Find negative coefficient $(i): ")
-    @time begin
+print("Find negative coefficients: ")
+@time begin     
+    for i in 1:numNegEigenvalues
         a = quadgk(x -> negEigenFunc(x, i) * initFunc(x), 0, 2 * pi, rtol = 1e-5)[1]
         b = quadgk(x -> (negEigenFunc(x, i))^2, 0, 2 * pi, rtol = 1e-5)[1]
         push!(negCoeffList, a/b)

@@ -1,12 +1,18 @@
 module Solution
 
 include("./settings.jl")
+include("./eigenvalues.jl")
 include("./coeff.jl")
+include("./negEigenfunction.jl")
+include("./posEigenfunction.jl")
+include("./zeroEigenfunction.jl")
 
 using .Settings
 using .Coeff
-
-export solReal, solImg
+using .Eigenvalues
+using .NegEigenfunction
+using .PosEigenfunction
+using .ZeroEigenfunction
 
 function negSolReal(x, timestep)
     negCosList = map(i -> cos((negEigenList[i])^2 * timestep), range(1, numNegEigenvalues, step=1))
@@ -54,6 +60,6 @@ function zeroSol(x)
 end
 
 solReal(x, timestep) = negSolReal(x, timestep) + posSolReal(x, timestep) + zeroSol(x)
-solImg(x, timestep) = negSolImg(x, timestep) + posImg(x, timestep)
+solImg(x, timestep) = negSolImg(x, timestep) + posSolImg(x, timestep)
 
 end
