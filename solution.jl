@@ -60,6 +60,7 @@ function zeroSol(x)
 end
 
 function revivalSolReal(x, timestep)
+    vAverage = 
     revivalCosList = map(i -> cos(i^2 * timestep), range(1, numNegEigenvalues, step=1))
     result = 0
     for i in 1:div(numNegEigenvalues, 2)
