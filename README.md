@@ -1,4 +1,4 @@
-# Numerical solver for Schodinger Equation with step potential function
+# Simulation for Schodinger Equation with Step Potential Function
 
 Author: Dinh-Quan Tran 
 
