@@ -8,8 +8,6 @@ using .Eigenvalues: posEigenList
 
 export posEigenFunc
 
-println("In posEigenfunction")
-
 el = posEigenList
 
 a1 = map(x -> 0.5 * (sqrt(c - x^2) * (cosh(p * x) - sinh(p * x) - cos((2 * pi - p) * sqrt(c - x^2))) - 

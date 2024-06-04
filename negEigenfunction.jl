@@ -10,8 +10,6 @@ export negEigenFunc
 
 el = negEigenList
 
-println("In negEigenfunction")
-
 a1 = map(x -> sqrt(c + x^2) * (cos(p * x) - cos((2 * pi - p) * sqrt(c + x^2))), el)
 b1 = map(x -> -(x * sin((2 * pi - p) * sqrt(c + x^2)) + sqrt(c + x^2) * sin(p * x)), el)
 a2 = map(x -> x * cos(p * x) * cos(2 * pi * sqrt(c + x^2)) - 

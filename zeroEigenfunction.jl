@@ -6,8 +6,6 @@ using .Settings
 
 export zeroEigenFunc
 
-println("In zeroEigenfunction")
-
 a1 = sqrt(c) * (cos((2 * pi - p) * sqrt(c)) - 1)
 b1 = p * sqrt(c) + sin((2 * pi - p) * sqrt(c))
 a2 = p * sqrt(c) * sin(2 * pi * sqrt(c)) - cos(2 * pi * sqrt(c)) + cos(p * sqrt(c))
