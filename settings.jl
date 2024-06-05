@@ -19,7 +19,12 @@ numPosEigenvalues = 3
 posEigenList = [1.7, 2.5, 2.9]
 
 function initFunc(x)
-    if x <= pi/2
+    dist = pi / 2
+    if x <= dist - 2 * pi
+        return 0
+    elseif x <= 0
+        return 1
+    elseif x <= dist
         return 0
     else
         return 1

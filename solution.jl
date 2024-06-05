@@ -59,14 +59,16 @@ function zeroSol(x)
     return result
 end
 
-function revivalSolReal(x, timestep)
-    vAverage = 
-    revivalCosList = map(i -> cos(i^2 * timestep), range(1, numNegEigenvalues, step=1))
+function revivalSolReal(x, timestepFractionOfPi)
+    q = denominator(timestepFractionOfPi // 2)
+    vAverage = c * (2 * pi - p) / (2 * pi)
     result = 0
-    for i in 1:div(numNegEigenvalues, 2)
-        result += @. revivalCoeffList[2*i-1] * revivalCosList[i] * cos(i*x)
-        result += @. revivalCoeffList[2*i] * revivalCosList[i] * sin(i*x)
+    for m in 0:(q-1)
+        for k in 0:(q-1)
+            result += @. cos(m * 2 * pi * k / q - m^2 * pi * timestepFractionOfPi - pi * timestepFractionOfPi * vAverage) * initFunc(x - 2 * pi * k / q)
+        end
     end
+    result = result / q
     return result
 end
 
