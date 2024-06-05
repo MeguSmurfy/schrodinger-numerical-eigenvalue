@@ -24,7 +24,7 @@ posDeterminant(x) = sinh(p * x) * sin((2 * pi - p) * sqrt(c - x^2)) * (2 * x^2 -
 
 posEigenList = Utils.newtonMethod(posDeterminant, posEigenList)
 
-if ((2 - 2 * cos((2 * pi - p) * sqrt(c)) + p * sqrt(c) * sin((2 * pi - p) * sqrt(c))) <= 1e-10)
+if (abs(2 - 2 * cos((2 * pi - p) * sqrt(c)) + p * sqrt(c) * sin((2 * pi - p) * sqrt(c))) <= 1e-10)
     zeroEigenvalue = true
 end
 

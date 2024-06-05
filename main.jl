@@ -19,15 +19,15 @@ print("Plotting real part over rational points: ")
         plot(xPoints, (@. solReal(xPoints, timestep * pi)), linecolor=:darkblue, linewidth=2)
         plot!(grid=false, legend=false, size=(900, 600))
 
-        dir = "images\\$(Int.(c))_pi_stepfuncpi2\\rational_real"
+        dir = "images\\$(Int.(c))_3pi2_stepfunc\\rational_real"
         if !isdir(dir)
             mkpath(dir)
         end
 
         if timestep == 0
-            filename = "$(dir)\\$(Int.(c))_pi_0_1000_00005pi_real.png"
+            filename = "$(dir)\\$(Int.(c))_3pi2_0_1000_00005pi_real.png"
         else
-            filename = "$(dir)\\$(Int.(c))_pi_$(numerator(timestep))pi$(denominator(timestep))_1000_00005pi_real.png"
+            filename = "$(dir)\\$(Int.(c))_3pi2_$(numerator(timestep))pi$(denominator(timestep))_1000_00005pi_real.png"
         end
         savefig(filename)
     end
@@ -39,15 +39,15 @@ print("Plotting imaginary part over rational points: ")
         plot(xPoints, (@. solImg(xPoints, timestep * pi)), linecolor=:darkblue, linewidth=2)
         plot!(grid=false, legend=false, size=(900, 600))
 
-        dir = "images\\$(Int.(c))_pi_stepfuncpi2\\rational_img"
+        dir = "images\\$(Int.(c))_3pi2_stepfunc\\rational_img"
         if !isdir(dir)
             mkpath(dir)
         end
 
         if timestep == 0
-            filename = "$(dir)\\$(Int.(c))_pi_0_1000_00005pi_imaginary.png"
+            filename = "$(dir)\\$(Int.(c))_3pi2_0_1000_00005pi_imaginary.png"
         else
-            filename = "$(dir)\\$(Int.(c))_pi_$(numerator(timestep))pi$(denominator(timestep))_1000_00005pi_imaginary.png"
+            filename = "$(dir)\\$(Int.(c))_3pi2_$(numerator(timestep))pi$(denominator(timestep))_1000_00005pi_imaginary.png"
         end
         savefig(filename)
     end
@@ -59,12 +59,12 @@ print("Plotting real part over irrational points: ")
         plot(xPoints, (@. solReal(xPoints, timestep)), linecolor=:darkblue, linewidth=2)
         plot!(grid=false, legend=false, size=(900, 600))
 
-        dir = "images\\$(Int.(c))_pi_stepfuncpi2\\irrational_real"
+        dir = "images\\$(Int.(c))_3pi2_stepfunc\\irrational_real"
         if !isdir(dir)
             mkpath(dir)
         end
 
-        filename = "$(dir)\\$(Int.(c))_pi_$(timestep)_1000_00005pi_real.png"
+        filename = "$(dir)\\$(Int.(c))_3pi2_$(timestep)_1000_00005pi_real.png"
         savefig(filename)
     end
 end
@@ -75,12 +75,12 @@ print("Plotting imaginary part over irrational points: ")
         plot(xPoints, (@. solImg(xPoints, timestep)), linecolor=:darkblue, linewidth=2)
         plot!(grid=false, legend=false, size=(900, 600))
 
-        dir = "images\\$(Int.(c))_pi_stepfuncpi2\\irrational_img"
+        dir = "images\\$(Int.(c))_3pi2_stepfunc\\irrational_img"
         if !isdir(dir)
             mkpath(dir)
         end
 
-        filename = "$(dir)\\$(Int.(c))_pi_$(timestep)_1000_00005pi_imaginary.png"
+        filename = "$(dir)\\$(Int.(c))_3pi2_$(timestep)_1000_00005pi_imaginary.png"
         savefig(filename)
     end
 end
