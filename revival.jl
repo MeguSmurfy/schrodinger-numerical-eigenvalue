@@ -13,7 +13,6 @@ revivalSolReal = Solution.revivalSolReal
 
 xPoints = range(0, 2 * pi, step = 0.00005 * pi)
 
-#=
 print("Plotting real part over rational points: ")
 @time begin
     for timestep in rationalTimeSteps
@@ -23,24 +22,43 @@ print("Plotting real part over rational points: ")
         # customization
         plot!(grid=false, legend=false, size=(900, 600))
 
+        # make directory
+        dir = "images\\$(Int.(c))_pi2_stepfunc_revival\\rational_real_revival"
+        if !isdir(dir)
+            mkdir(dir)
+        end
+
         # save file
         if timestep == 0
-            filename = "images\\$(Int.(c))_pi_stepfuncpi2_test\\rational_real\\$(Int.(c))_pi_0_1000_00005pi_real.png"
+            filename = "$(dir)\\$(Int.(c))_pi2_0_1000_00005pi_real.png"
         else
-            filename = "images\\$(Int.(c))_pi_stepfuncpi2_test\\rational_real\\$(Int.(c))_pi_$(numerator(timestep))pi$(denominator(timestep))_1000_00005pi_real.png"
+            filename = "$(dir)\\$(Int.(c))_pi2_$(numerator(timestep))pi$(denominator(timestep))_1000_00005pi_real.png"
         end
         savefig(filename)
     end
 end
-=#
 
-timestep = 0
+print("Plotting real part difference over rational points: ")
+@time begin
+    for timestep in rationalTimeSteps
+        # make the plot
+        plot(xPoints, (@. solReal(xPoints, timestep * pi) - revivalSolReal(xPoints, timestep)), linecolor=:darkblue, linewidth=2)
 
-plot(xPoints, (@. solReal(xPoints, timestep * pi) - revivalSolReal(xPoints, timestep)), linecolor=:darkblue, linewidth=2)
-plot!(grid=false, legend=false, size=(900, 600))
-if timestep == 0
-    filename = "images\\$(Int.(c))_pi_stepfuncpi2_test\\rational_real_diff\\$(Int.(c))_pi_0_1000_00005pi_real.png"
-else
-    filename = "images\\$(Int.(c))_pi_stepfuncpi2_test\\rational_real_diff\\$(Int.(c))_pi_$(numerator(timestep))pi$(denominator(timestep))_1000_00005pi_real.png"
+        # customization
+        plot!(grid=false, legend=false, size=(900, 600))
+
+        # make directory
+        dir = "images\\$(Int.(c))_pi2_stepfunc_revival\\rational_real_revival_diff"
+        if !isdir(dir)
+            mkdir(dir)
+        end
+
+        # save file
+        if timestep == 0
+            filename = "$(dir)\\$(Int.(c))_pi2_0_1000_00005pi_real.png"
+        else
+            filename = "$(dir)\\$(Int.(c))_pi2_$(numerator(timestep))pi$(denominator(timestep))_1000_00005pi_real.png"
+        end
+        savefig(filename)
+    end
 end
-savefig(filename)

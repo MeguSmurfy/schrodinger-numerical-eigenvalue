@@ -65,7 +65,7 @@ function revivalSolReal(x, timestepFractionOfPi)
     result = 0
     for m in 0:(q-1)
         for k in 0:(q-1)
-            result += @. cos(m * 2 * pi * k / q - m^2 * pi * timestepFractionOfPi - pi * timestepFractionOfPi * vAverage) * initFunc(x - 2 * pi * k / q)
+            result += @. cos(m * 2 * pi * k / q - m^2 * pi * timestepFractionOfPi + pi * timestepFractionOfPi * vAverage) * initFunc(x - 2 * pi * k / q)
         end
     end
     result = result / q
