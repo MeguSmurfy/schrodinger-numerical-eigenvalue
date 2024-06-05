@@ -16,19 +16,14 @@ xPoints = range(0, 2 * pi, step = 0.00005 * pi)
 print("Plotting real part over rational points: ")
 @time begin
     for timestep in rationalTimeSteps
-        # make the plot
         plot(xPoints, (@. revivalSolReal(xPoints, timestep)), linecolor=:darkblue, linewidth=2)
-
-        # customization
         plot!(grid=false, legend=false, size=(900, 600))
 
-        # make directory
         dir = "images\\$(Int.(c))_pi2_stepfunc_revival\\rational_real_revival"
         if !isdir(dir)
-            mkdir(dir)
+            mkpath(dir)
         end
 
-        # save file
         if timestep == 0
             filename = "$(dir)\\$(Int.(c))_pi2_0_1000_00005pi_real.png"
         else
@@ -41,19 +36,14 @@ end
 print("Plotting real part difference over rational points: ")
 @time begin
     for timestep in rationalTimeSteps
-        # make the plot
         plot(xPoints, (@. solReal(xPoints, timestep * pi) - revivalSolReal(xPoints, timestep)), linecolor=:darkblue, linewidth=2)
-
-        # customization
         plot!(grid=false, legend=false, size=(900, 600))
 
-        # make directory
         dir = "images\\$(Int.(c))_pi2_stepfunc_revival\\rational_real_revival_diff"
         if !isdir(dir)
-            mkdir(dir)
+            mkpath(dir)
         end
 
-        # save file
         if timestep == 0
             filename = "$(dir)\\$(Int.(c))_pi2_0_1000_00005pi_real.png"
         else
