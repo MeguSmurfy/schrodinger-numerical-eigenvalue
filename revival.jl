@@ -19,15 +19,15 @@ print("Plotting real part over rational points: ")
         plot(xPoints, (@. revivalSolReal(xPoints, timestep)), linecolor=:darkblue, linewidth=2)
         plot!(grid=false, legend=false, size=(900, 600))
 
-        dir = "images\\$(Int.(c))_pi2_stepfunc_revival\\rational_real_revival"
+        dir = "images\\$(Int.(c))_pi_stepfunc_revival\\rational_real_revival"
         if !isdir(dir)
             mkpath(dir)
         end
 
         if timestep == 0
-            filename = "$(dir)\\$(Int.(c))_pi2_0_1000_00005pi_real.png"
+            filename = "$(dir)\\$(Int.(c))_pi_0_1000_00005pi_real.png"
         else
-            filename = "$(dir)\\$(Int.(c))_pi2_$(numerator(timestep))pi$(denominator(timestep))_1000_00005pi_real.png"
+            filename = "$(dir)\\$(Int.(c))_pi_$(numerator(timestep))pi$(denominator(timestep))_1000_00005pi_real.png"
         end
         savefig(filename)
     end
@@ -39,15 +39,15 @@ print("Plotting real part difference over rational points: ")
         plot(xPoints, (@. solReal(xPoints, timestep * pi) - revivalSolReal(xPoints, timestep)), linecolor=:darkblue, linewidth=2)
         plot!(grid=false, legend=false, size=(900, 600))
 
-        dir = "images\\$(Int.(c))_pi2_stepfunc_revival\\rational_real_revival_diff"
+        dir = "images\\$(Int.(c))_pi_stepfunc_revival\\rational_real_revival_diff"
         if !isdir(dir)
             mkpath(dir)
         end
 
         if timestep == 0
-            filename = "$(dir)\\$(Int.(c))_pi2_0_1000_00005pi_real.png"
+            filename = "$(dir)\\$(Int.(c))_pi_0_1000_00005pi_real.png"
         else
-            filename = "$(dir)\\$(Int.(c))_pi2_$(numerator(timestep))pi$(denominator(timestep))_1000_00005pi_real.png"
+            filename = "$(dir)\\$(Int.(c))_pi_$(numerator(timestep))pi$(denominator(timestep))_1000_00005pi_real.png"
         end
         savefig(filename)
     end
