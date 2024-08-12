@@ -1,8 +1,10 @@
 module ConfigParser
 
 include("./config.jl")
+include("./initFunc.jl")
 
 using .Config
+using .InitFunc
 
 export c, p, rationalTimeSteps, irrationalTimeSteps, numNegEigenvalues, numPosEigenvalues, initFunc, initFunc2, initFunc3
 
@@ -26,8 +28,8 @@ posEigenList = Config.posEigenList
 
 initDesignator = Config.initDesignator
 
-initFunc = Config.initFunc
-initFunc2 = Config.initFunc2
-initFunc3 = Config.initFunc3
+initFunc = InitFunc.initFunc
+initFunc2 = InitFunc.initFunc2
+initFunc3 = InitFunc.initFunc3
 
 end
