@@ -1,7 +1,7 @@
 module Eigenvalues
 
-include("./utils.jl")
-include("./config/config.jl")
+include("../utils/utils.jl")
+include("../config/config.jl")
 
 using .Utils
 using .Config

@@ -1,11 +1,11 @@
 module Solution
 
 include("./config/config.jl")
-include("./eigenvalues.jl")
-include("./coeff.jl")
-include("./negEigenfunction.jl")
-include("./posEigenfunction.jl")
-include("./zeroEigenfunction.jl")
+include("./eigenfuncs/eigenvalues.jl")
+include("./eigenfuncs/coeff.jl")
+include("./eigenfuncs/negEigenfunction.jl")
+include("./eigenfuncs/posEigenfunction.jl")
+include("./eigenfuncs/zeroEigenfunction.jl")
 
 using .Config
 using .Coeff

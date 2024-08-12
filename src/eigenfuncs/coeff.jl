@@ -3,7 +3,7 @@ module Coeff
 import Pkg
 Pkg.add("QuadGK")
 
-include("./config/config.jl")
+include("../config/config.jl")
 include("./negEigenfunction.jl")
 include("./posEigenfunction.jl")
 include("./zeroEigenfunction.jl")

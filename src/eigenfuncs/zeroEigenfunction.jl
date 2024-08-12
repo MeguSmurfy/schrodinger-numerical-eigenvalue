@@ -1,6 +1,6 @@
 module ZeroEigenfunction
 
-include("./config/config.jl")
+include("../config/config.jl")
 
 using .Config
 

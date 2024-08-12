@@ -1,6 +1,6 @@
 module NegEigenfunction
 
-include("./config/config.jl")
+include("../config/config.jl")
 include("./eigenvalues.jl")
 
 using .Config
