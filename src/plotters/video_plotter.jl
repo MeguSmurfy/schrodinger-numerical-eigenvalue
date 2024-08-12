@@ -10,10 +10,13 @@ using Printf
 using .ConfigParser
 using .Solution
 
+increment = ConfigParser.increment
+revival = ConfigParser.revival
+
 solReal = Solution.solReal
 revivalSolReal = Solution.revivalSolReal
 
-xPoints = range(0, 7, step = 0.0005 * pi)
+xPoints = range(0, 7, step = increment * pi)
 steps = 120
 
 dir = DirCreator.createDirectory(1, revival)

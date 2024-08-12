@@ -10,7 +10,6 @@ using .ConfigParser
 using .Solution
 using .DirCreator
 
-numNegEigenvalues = ConfigParser.numNegEigenvalues
 increment = ConfigParser.increment
 revival = ConfigParser.revival
 
