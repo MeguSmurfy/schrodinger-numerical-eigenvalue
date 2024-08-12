@@ -1,9 +1,9 @@
 module PosEigenfunction
 
-include("../config/config.jl")
+include("../config/configParser.jl")
 include("./eigenvalues.jl")
 
-using .Config
+using .ConfigParser
 using .Eigenvalues: posEigenList
 
 export posEigenFunc

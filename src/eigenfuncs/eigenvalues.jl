@@ -1,11 +1,11 @@
 module Eigenvalues
 
 include("../utils/utils.jl")
-include("../config/config.jl")
+include("../config/configParser.jl")
 include("./negEigenvaluesInitializer.jl")
 
 using .Utils
-using .Config
+using .ConfigParser
 using .NegEigenvaluesInitializer
 
 export negEigenList, posEigenList, zeroEigenvalue

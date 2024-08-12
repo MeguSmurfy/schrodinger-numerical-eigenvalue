@@ -1,13 +1,13 @@
 module Solution
 
-include("../config/config.jl")
+include("../config/configParser.jl")
 include("../eigenfuncs/eigenvalues.jl")
 include("../eigenfuncs/coeff.jl")
 include("../eigenfuncs/negEigenfunction.jl")
 include("../eigenfuncs/posEigenfunction.jl")
 include("../eigenfuncs/zeroEigenfunction.jl")
 
-using .Config
+using .ConfigParser
 using .Coeff
 using .Eigenvalues
 using .NegEigenfunction

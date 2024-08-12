@@ -1,8 +1,8 @@
 module NegEigenvaluesInitializer
 
-include("../config/config.jl")
+include("../config/configParser.jl")
 
-using .Config
+using .ConfigParser
 
 negEigenList = Config.negEigenList
 picked = Config.numNegEigenvaluesPicked

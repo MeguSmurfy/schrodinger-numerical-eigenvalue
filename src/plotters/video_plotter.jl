@@ -2,20 +2,20 @@ import Pkg
 Pkg.add("Plots")
 Pkg.add("Printf")
 
-include("../config/config.jl")
+include("../config/configParser.jl")
 include("../solutions/solution.jl")
 
 using Plots
 using Printf
-using .Config
+using .ConfigParser
 using .Solution
 
 solReal = Solution.solReal
 revivalSolReal = Solution.revivalSolReal
 
-xPoints = range(0, 7, step = 0.00005 * pi)
-
+xPoints = range(0, 7, step = 0.0005 * pi)
 steps = 120
+
 for step in range(0, steps)
     print("Plotting continuous part over rational point $(step): ")
     @time begin

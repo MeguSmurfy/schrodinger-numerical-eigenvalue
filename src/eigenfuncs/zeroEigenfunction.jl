@@ -1,8 +1,8 @@
 module ZeroEigenfunction
 
-include("../config/config.jl")
+include("../config/configParser.jl")
 
-using .Config
+using .ConfigParser
 
 export zeroEigenFunc
 
