@@ -12,7 +12,6 @@ using .DirCreator
 
 numNegEigenvalues = ConfigParser.numNegEigenvalues
 increment = ConfigParser.increment
-mode = ConfigParser.mode
 revival = ConfigParser.revival
 
 solReal = Solution.solReal
@@ -20,7 +19,7 @@ solImg = Solution.solImg
 revivalSolReal = Solution.revivalSolReal
 
 xPoints = range(0, 7, step = increment * pi)
-dir = DirCreator.createDirectory(mode, revival)
+dir = DirCreator.createDirectory(0, revival)
 
 if !revival
     print("Plotting real part over rational points: ")
