@@ -11,7 +11,7 @@ using .NegEigenvaluesInitializer
 export negEigenList, posEigenList, zeroEigenvalue
 
 negEigenList = NegEigenvaluesInitializer.negEigenList
-posEigenList = Config.posEigenList
+posEigenList = ConfigParser.posEigenList
 zeroEigenvalue = false
 
 negDeterminant(x) = sin(p * x) * sin((2 * pi - p) * sqrt(c + x^2)) * (2 * x^2 + c) - 

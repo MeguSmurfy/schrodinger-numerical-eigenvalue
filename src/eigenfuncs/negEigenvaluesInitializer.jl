@@ -4,12 +4,12 @@ include("../config/configParser.jl")
 
 using .ConfigParser
 
-negEigenList = Config.negEigenList
-picked = Config.numNegEigenvaluesPicked
+negEigenList = ConfigParser.negEigenList
+picked = ConfigParser.numNegEigenvaluesPicked
 
 startPos = 5
 variator = 0.1
-endPos = cld(numNegEigenvalues, 2) + start - fld(picked, 2)
+endPos = cld(numNegEigenvalues, 2) + startPos - fld(picked, 2)
 
 for i in startPos:endPos
     lower = i - (i - sqrt(i^2 - c)) * (1 - p / (2 * pi)) - variator

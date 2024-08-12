@@ -4,47 +4,60 @@ include("../config/config.jl")
 
 using .Config
 
-export directoryName, fileName
-
-mode = Config.mode
+increment = Config.increment
+c = Config.c
+p = Config.p
+numNegEigenvalues = Config.numNegEigenvalues
 pMode = Config.pMode
-revival = Config.revival
 des = Config.initDesignator
 
-function createDirectory()
-    directoryName = "../../"
-
+function createDirectory(mode, revival)
+    # determine headers
     if mode == 0
         header = "images"
-        suffixes = ["rational_real", "rational_img", "irrational_real", "irrational_img"]
     else
         header = "videos"
     end
-    
-    if pMode == 0
-        directoryName = directoryName * "$(header)\\$(Int.(c))_$(numerator(p))pi$(denominator(p))_$(des)"
-    else
-        directoryName = directoryName * "$(header)\\$(Int.(c))_$(p)_$(des)"
-    end
-    
+
+    # determine suffixes
     if revival
-        directoryName = directoryName * "_revival"
+        suffixes = ["rational_real_revival", "rational_real_revival_diff"]
+    else
+        suffixes = ["rational_real", "rational_img", "irrational_real", "irrational_img"]
+    end
+    
+    # initialize directory name
+    dir = "$(header)\\$(Int.(c))"
+
+    # add discontinuity information
+    if pMode == 0
+        dir = dir * "_$(numerator(p))pi$(denominator(p))"
+    else
+        dir = dir * "_$(p)"
     end
 
-    if !isdir(directoryName)
-        mkpath(directoryName)
+    # add plotting information
+    dir = dir * "_$(des)_$(numNegEigenvalues)_$(increment)pi"
+    
+    # add revival option
+    if revival
+        dir = dir * "_revival"
     end
 
-    if mode == 0
-        for suffix in suffixes
-            suffixedName = directoryName * "\\$(suffix)"
-            if !isdir(suffixedName)
-                mkpath(suffixedName)
-            end
+    # make directory
+    if !isdir(dir)
+        mkpath(dir)
+    end
+
+    # make subdirectories from suffixes
+    for suffix in suffixes
+        suffixed = dir * "\\$(suffix)"
+        if !isdir(suffixed)
+            mkpath(suffixed)
         end
     end
 
-    return directoryName
+    return dir
 end
 
 end

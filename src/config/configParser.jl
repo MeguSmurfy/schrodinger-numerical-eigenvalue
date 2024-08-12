@@ -8,9 +8,14 @@ using .InitFunc
 
 export c, p, rationalTimeSteps, irrationalTimeSteps, numNegEigenvalues, numPosEigenvalues, initFunc, initFunc2, initFunc3
 
+increment = Config.increment
+
 mode = Config.mode
 revival = Config.revival
 
+c = Config.c
+
+p = Config.p
 pMode = Config.pMode
 if pMode == 0
     p = p * pi

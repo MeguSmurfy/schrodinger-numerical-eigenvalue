@@ -10,28 +10,29 @@ using .ConfigParser
 using .Solution
 using .DirCreator
 
-revival = Config.revival
+numNegEigenvalues = ConfigParser.numNegEigenvalues
+increment = ConfigParser.increment
+mode = ConfigParser.mode
+revival = ConfigParser.revival
 
 solReal = Solution.solReal
 solImg = Solution.solImg
 revivalSolReal = Solution.revivalSolReal
 
-xPoints = range(0, 7, step = 0.0005 * pi)
-dir = DirCreator.createDirectory()
+xPoints = range(0, 7, step = increment * pi)
+dir = DirCreator.createDirectory(mode, revival)
 
-if revival
+if !revival
     print("Plotting real part over rational points: ")
     @time begin
         for timestep in rationalTimeSteps
             plot(xPoints, (@. solReal(xPoints, timestep * pi)), linecolor=:darkblue, linewidth=1)
             plot!(grid=false, legend=false, size=(900, 600))
 
-            dir = "images\\$(Int.(c))_2.01_intdelta\\rational_real"
-
             if timestep == 0
-                filename = "$(dir)\\0_1000_00005pi_real.png"
+                filename = "$(dir)\\rational_real\\0.png"
             else
-                filename = "$(dir)\\$(numerator(timestep))pi$(denominator(timestep))_1000_00005pi_real.png"
+                filename = "$(dir)\\rational_real\\$(numerator(timestep))pi$(denominator(timestep)).png"
             end
             savefig(filename)
         end
@@ -43,12 +44,10 @@ if revival
             plot(xPoints, (@. solImg(xPoints, timestep * pi)), linecolor=:darkblue, linewidth=1)
             plot!(grid=false, legend=false, size=(900, 600))
 
-            dir = "images\\$(Int.(c))_2.5_intdelta\\rational_img"
-
             if timestep == 0
-                filename = "$(dir)\\0_1000_00005pi_imaginary.png"
+                filename = "$(dir)\\rational_img\\0.png"
             else
-                filename = "$(dir)\\$(numerator(timestep))pi$(denominator(timestep))_1000_00005pi_imaginary.png"
+                filename = "$(dir)\\rational_img\\$(numerator(timestep))pi$(denominator(timestep)).png"
             end
             savefig(filename)
         end
@@ -60,9 +59,7 @@ if revival
             plot(xPoints, (@. solReal(xPoints, timestep)), linecolor=:darkblue, linewidth=1)
             plot!(grid=false, legend=false, size=(900, 600))
 
-            dir = "images\\$(Int.(c))_2.01_intdelta\\irrational_real"
-
-            filename = "$(dir)\\$(timestep)_1000_00005pi_real.png"
+            filename = "$(dir)\\irrational_real\\$(timestep).png"
             savefig(filename)
         end
     end
@@ -72,10 +69,8 @@ if revival
         for timestep in irrationalTimeSteps
             plot(xPoints, (@. solImg(xPoints, timestep)), linecolor=:darkblue, linewidth=1)
             plot!(grid=false, legend=false, size=(900, 600))
-
-            dir = "images\\$(Int.(c))_2.5_intdelta\\irrational_img"
         
-            filename = "$(dir)\\$(timestep)_1000_00005pi_imaginary.png"
+            filename = "$(dir)\\irrational_img\\$(timestep).png"
             savefig(filename)
         end
     end
@@ -87,12 +82,10 @@ else
             plot(xPoints, (@. revivalSolReal(xPoints, timestep)), linecolor=:darkblue, linewidth=1)
             plot!(grid=false, legend=false, size=(900, 600))
 
-            dir = "images\\$(Int.(c))_pi2_intdelta_revival\\rational_real_revival"
-
             if timestep == 0
-                filename = "$(dir)\\0_1000_00005pi_real.png"
+                filename = "$(dir)\\rational_real_revival\\0.png"
             else
-                filename = "$(dir)\\$(numerator(timestep))pi$(denominator(timestep))_1000_00005pi_real.png"
+                filename = "$(dir)\\rational_real_revival\\$(numerator(timestep))pi$(denominator(timestep)).png"
             end
             savefig(filename)
         end
@@ -104,12 +97,10 @@ else
             plot(xPoints, (@. solReal(xPoints, timestep * pi) - revivalSolReal(xPoints, timestep)), linecolor=:darkblue, linewidth=1)
             plot!(grid=false, legend=false, size=(900, 600))
 
-            dir = "images\\$(Int.(c))_pi2_intdelta_revival\\rational_real_revival_diff"
-
             if timestep == 0
-                filename = "$(dir)\\0_1000_00005pi_real.png"
+                filename = "$(dir)\\rational_real_revival_diff\\0.png"
             else
-                filename = "$(dir)\\$(numerator(timestep))pi$(denominator(timestep))_1000_00005pi_real.png"
+                filename = "$(dir)\\rational_real_revival_diff\\$(numerator(timestep))pi$(denominator(timestep)).png"
             end
             savefig(filename)
         end

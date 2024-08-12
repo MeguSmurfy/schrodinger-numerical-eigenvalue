@@ -1,5 +1,8 @@
 module Config
 
+# plotting constants
+increment = 0.0005
+
 # mode = 0 for images, mode = 1 for videos
 mode = 0
 
