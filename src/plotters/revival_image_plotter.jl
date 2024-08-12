@@ -1,8 +1,8 @@
 import Pkg
 Pkg.add("Plots")
 
-include("./config/config.jl")
-include("./solution.jl")
+include("../config/config.jl")
+include("../solutions/solution.jl")
 
 using Plots
 using .Config

@@ -20,7 +20,6 @@ negCoeffList = Float64[]
 posCoeffList = Float64[]
 revivalCoeffList = Float64[]
 
-   
 for i in 1:numNegEigenvalues
     print("Find negative coefficients $i: ")
     @time begin  

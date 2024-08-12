@@ -2,13 +2,15 @@ module Eigenvalues
 
 include("../utils/utils.jl")
 include("../config/config.jl")
+include("./negEigenvaluesInitializer.jl")
 
 using .Utils
 using .Config
+using .NegEigenvaluesInitializer
 
 export negEigenList, posEigenList, zeroEigenvalue
 
-negEigenList = Config.negEigenList
+negEigenList = NegEigenvaluesInitializer.negEigenList
 posEigenList = Config.posEigenList
 zeroEigenvalue = false
 

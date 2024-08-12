@@ -2,8 +2,8 @@ import Pkg
 Pkg.add("Plots")
 Pkg.add("Printf")
 
-include("./config/config.jl")
-include("./solution.jl")
+include("../config/config.jl")
+include("../solutions/solution.jl")
 
 using Plots
 using Printf

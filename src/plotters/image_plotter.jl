@@ -1,17 +1,20 @@
 import Pkg
 Pkg.add("Plots")
 
-include("./config/config.jl")
-include("./solution.jl")
+include("../config/config.jl")
+include("../utils/dirCreator.jl")
+include("../solutions/solution.jl")
 
 using Plots
 using .Config
 using .Solution
+using .DirCreator
 
 solReal = Solution.solReal
 solImg = Solution.solImg
 
 xPoints = range(0, 2 * pi, step = 0.00005 * pi)
+dir = DirCreator.createDirectory()
 
 print("Plotting real part over rational points: ")
 @time begin
