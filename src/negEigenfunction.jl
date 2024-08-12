@@ -1,9 +1,9 @@
 module NegEigenfunction
 
-include("./settings.jl")
+include("./config/config.jl")
 include("./eigenvalues.jl")
 
-using .Settings
+using .Config
 using .Eigenvalues: negEigenList
 
 export negEigenFunc

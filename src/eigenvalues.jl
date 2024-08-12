@@ -1,15 +1,15 @@
 module Eigenvalues
 
 include("./utils.jl")
-include("./settings.jl")
+include("./config/config.jl")
 
 using .Utils
-using .Settings
+using .Config
 
 export negEigenList, posEigenList, zeroEigenvalue
 
-negEigenList = Settings.negEigenList
-posEigenList = Settings.posEigenList
+negEigenList = Config.negEigenList
+posEigenList = Config.posEigenList
 zeroEigenvalue = false
 
 negDeterminant(x) = sin(p * x) * sin((2 * pi - p) * sqrt(c + x^2)) * (2 * x^2 + c) - 

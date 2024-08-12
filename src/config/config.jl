@@ -1,4 +1,4 @@
-module Settings
+module Config
 
 export c, p, rationalTimeSteps, irrationalTimeSteps, numNegEigenvalues, numPosEigenvalues, initFunc, initFunc2, initFunc3
 

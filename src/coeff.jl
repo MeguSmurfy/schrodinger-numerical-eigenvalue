@@ -3,13 +3,13 @@ module Coeff
 import Pkg
 Pkg.add("QuadGK")
 
-include("./settings.jl")
+include("./config/config.jl")
 include("./negEigenfunction.jl")
 include("./posEigenfunction.jl")
 include("./zeroEigenfunction.jl")
 
 using QuadGK
-using .Settings
+using .Config
 using .NegEigenfunction: negEigenFunc
 using .PosEigenfunction: posEigenFunc
 using .ZeroEigenfunction: zeroEigenFunc

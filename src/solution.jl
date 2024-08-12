@@ -1,13 +1,13 @@
 module Solution
 
-include("./settings.jl")
+include("./config/config.jl")
 include("./eigenvalues.jl")
 include("./coeff.jl")
 include("./negEigenfunction.jl")
 include("./posEigenfunction.jl")
 include("./zeroEigenfunction.jl")
 
-using .Settings
+using .Config
 using .Coeff
 using .Eigenvalues
 using .NegEigenfunction
@@ -77,6 +77,9 @@ function solReal(x, timestep)
     return negSolReal(x, timestep) + posSolReal(x, timestep) + zeroSol(x)
 end
 
-solImg(x, timestep) = negSolImg(x, timestep) + posSolImg(x, timestep)
+function solImg(x, timestep)
+    x = x - (floor.(Int, x / (2 * pi))) * 2 * pi
+    return negSolImg(x, timestep) + posSolImg(x, timestep)
+end
 
 end

@@ -2,12 +2,12 @@ import Pkg
 Pkg.add("Plots")
 Pkg.add("Printf")
 
-include("./settings.jl")
+include("./config/config.jl")
 include("./solution.jl")
 
 using Plots
 using Printf
-using .Settings
+using .Config
 using .Solution
 
 solReal = Solution.solReal

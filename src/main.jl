@@ -1,11 +1,11 @@
 import Pkg
 Pkg.add("Plots")
 
-include("./settings.jl")
+include("./config/config.jl")
 include("./solution.jl")
 
 using Plots
-using .Settings
+using .Config
 using .Solution
 
 solReal = Solution.solReal
