@@ -1,0 +1,15 @@
+c = 9
+p = 2.5
+rationalTimeSteps = [0, 1, 1 // 2, 1 // 3, 1 // 4, 1 // 5, 1 // 6, 1 // 7, 1 // 8, 1 // 9, 1 // 10, 2 // 15, 1 // 15, 1 // 30]
+irrationalTimeSteps = [0.0001, 0.001, 0.01, 0.1, 0.2, 0.3, 0.4, 0.5]
+
+numNegEigenvalues = 1000
+negEigenList = [0.81, 1.92, 2.14, 3.24, 3.35]
+for i in 5:(numNegEigenvalues / 2 + 2)
+    lower = i - (i - sqrt(i^2 - c)) * (1 - p / (2 * pi)) - 0.1
+    higher = i - (i - sqrt(i^2 - c)) * (1 - p / (2 * pi)) + 0.1
+    append!(negEigenList, [lower, higher])
+end
+
+numPosEigenvalues = 4
+posEigenList = [1.23, 2.15, 2.65, 2.91]

@@ -65,14 +65,18 @@ function revivalSolReal(x, timestepFractionOfPi)
     result = 0
     for m in 0:(q-1)
         for k in 0:(q-1)
-            result += @. cos(m * 2 * pi * k / q - m^2 * pi * timestepFractionOfPi + pi * timestepFractionOfPi * vAverage) * initFunc(x - 2 * pi * k / q)
+            result += @. cos(m * 2 * pi * k / q - m^2 * pi * timestepFractionOfPi + pi * timestepFractionOfPi * vAverage) * initFunc3(x - 2 * pi * k / q)
         end
     end
     result = result / q
     return result
 end
 
-solReal(x, timestep) = negSolReal(x, timestep) + posSolReal(x, timestep) + zeroSol(x)
+function solReal(x, timestep)
+    x = x - (floor.(Int, x / (2 * pi))) * 2 * pi
+    return negSolReal(x, timestep) + posSolReal(x, timestep) + zeroSol(x)
+end
+
 solImg(x, timestep) = negSolImg(x, timestep) + posSolImg(x, timestep)
 
 end
