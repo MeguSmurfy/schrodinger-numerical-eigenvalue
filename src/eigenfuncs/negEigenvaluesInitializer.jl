@@ -6,9 +6,9 @@ using .ConfigParser
 
 negEigenList = ConfigParser.negEigenList
 picked = ConfigParser.numNegEigenvaluesPicked
+startPos = ConfigParser.startPos
+variator = ConfigParser.variator
 
-startPos = 5
-variator = 0.1
 endPos = cld(numNegEigenvalues, 2) + startPos - fld(picked, 2)
 
 for i in startPos:endPos

@@ -15,6 +15,6 @@ numNegEigenvalues = 1000
 numNegEigenvaluesPicked = 4
 negEigenList = [1.77, 1.94, 3.18325, 3.1994]
 
-# initializers for negative eigenvalues
+# initializers for positive eigenvalues
 numPosEigenvalues = 5
 posEigenList = [0.43, 1.66, 2.33, 2.71, 2.93]

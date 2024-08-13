@@ -27,6 +27,8 @@ irrationalTimeSteps = Config.irrationalTimeSteps
 numNegEigenvalues = Config.numNegEigenvalues
 numNegEigenvaluesPicked = Config.numNegEigenvaluesPicked
 negEigenList = Config.negEigenList
+startPos = Config.startPos
+variator = Config.variator
 
 numPosEigenvalues = Config.numPosEigenvalues
 posEigenList = Config.posEigenList
