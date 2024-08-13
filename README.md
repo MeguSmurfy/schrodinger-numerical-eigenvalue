@@ -3,3 +3,7 @@
 Author: Dinh-Quan Tran 
 
 ## Introduction 
+
+## Usage
+
+Make mp4 videos: ffmpeg -i %03d.png output.mp4
