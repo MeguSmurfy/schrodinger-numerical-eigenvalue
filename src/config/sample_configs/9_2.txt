@@ -12,8 +12,10 @@ irrationalTimeSteps = [0.0001, 0.001, 0.01, 0.1, 0.2, 0.3, 0.4, 0.5]
 
 # initializers for negative eigenvalues
 numNegEigenvalues = 1000
-numNegEigenvaluesPicked = 4
-negEigenList = [1.77, 1.93, 3.18, 3.2]
+numNegEigenvaluesPicked = 16
+negEigenList = [1.77, 1.93, 3.18, 3.2, 4.34, 4.38, 5.45, 5.49, 6.54, 6.57, 7.605, 7.617, 8.64, 8.66, 9.686, 9.695]
+startPos = 11
+variator = 0.09
 
 # initializers for positive eigenvalues
 numPosEigenvalues = 5
