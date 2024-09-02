@@ -10,7 +10,6 @@ export c, p, rationalTimeSteps, irrationalTimeSteps, numNegEigenvalues, numPosEi
 
 increment = Config.increment
 
-mode = Config.mode
 revival = Config.revival
 
 c = Config.c

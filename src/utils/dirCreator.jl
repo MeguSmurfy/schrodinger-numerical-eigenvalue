@@ -21,7 +21,7 @@ function createDirectory(mode, revival)
 
     # determine suffixes
     if revival
-        suffixes = ["rational_real", "rational_real_revival", "rational_real_revival_diff"]
+        suffixes = ["rational_real_solution", "rational_real_revival", "rational_real_continuous", "standard_revival_adjusted"]
     else
         suffixes = ["rational_real", "rational_img", "irrational_real", "irrational_img"]
     end

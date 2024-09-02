@@ -96,9 +96,9 @@ else
             plot!(grid=false, legend=false, size=(900, 600))
 
             if timestep == 0
-                filename = "$(dir)\\rational_real_revival_diff\\0.png"
+                filename = "$(dir)\\rational_real_continuous\\0.png"
             else
-                filename = "$(dir)\\rational_real_revival_diff\\$(numerator(timestep))pi$(denominator(timestep)).png"
+                filename = "$(dir)\\rational_real_continuous\\$(numerator(timestep))pi$(denominator(timestep)).png"
             end
             savefig(filename)
         end
