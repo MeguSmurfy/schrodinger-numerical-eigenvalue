@@ -1,0 +1,22 @@
+# c is the step size of the potential function (integers)
+c = 9
+
+# p is the position of potential discontinuity
+# p_mode = 0 for rational, p_mode = 1 for irrational
+pMode = 0
+p = 1 // 25
+
+# timesteps for plotting
+rationalTimeSteps = [0, 1, 1 // 2, 1 // 3, 1 // 4, 1 // 5, 1 // 6, 1 // 7, 1 // 8, 1 // 9, 1 // 10, 2 // 15, 1 // 15, 1 // 30]
+irrationalTimeSteps = [0.0001, 0.001, 0.01, 0.1, 0.2, 0.3, 0.4, 0.5]
+
+# initializers for negative eigenvalues
+numNegEigenvalues = 1000
+numNegEigenvaluesPicked = 56
+negEigenList = [0.065, 0.597, 2.647, 2.712, 4, 4.043, 5.197, 5.23, 6.326, 6.352, 7.418, 7.439, 8.487, 8.504, 9.541, 9.556, 10.585, 10.598, 11.621, 11.632, 12.651, 12.661, 13.677, 13.686, 14.7, 14.706, 15.719, 15.725, 16.736, 16.741, 17.751, 17.755, 18.765, 18.768, 19.777, 19.779, 20.788, 20.79, 21.798, 21.799, 22.8071, 22.80785, 23.81537, 23.81574, 24.82296, 24.82301, 25.82973, 25.82995, 26.83595, 26.83641, 27.84174, 27.84239, 28.84714, 28.84794, 29.85218, 29.8531]
+startPos = 31
+variator = 0.1
+
+# initializers for positive eigenvalues
+numPosEigenvalues = 5
+posEigenList = [2.156, 2.236, 2.77, 2.83, 2.98]

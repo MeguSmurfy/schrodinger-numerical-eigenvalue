@@ -23,7 +23,6 @@ steps = 120
 
 dir = DirCreator.createDirectory(1, revival)
 
-#=
 for step in range(0, steps)
     print("Plotting real part over rational point $(step): ")
     @time begin
@@ -59,7 +58,6 @@ for step in range(0, steps)
         savefig(filename)
     end
 end
-=#
 
 for step in range(0, steps)
     filtered = filter(x -> (x - floor(x * steps / pi) * pi / steps > 1e-10), xPoints)
