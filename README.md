@@ -1,4 +1,4 @@
-# Simulation for Schodinger Equation using Eigenvalue-Eigenfunction Methods
+# Simulation for Schrodinger Equation using Eigenvalue-Eigenfunction Methods
 
 Author: Dinh-Quan Tran 
 
